@@ -6,8 +6,7 @@ class Router
 {
     // function who returns url and call controller associated with the url
     public function routing() {
-        var_dump($_GET);die();
-        isset($_GET['p']) ? $path = $_GET['p'] : $path = null;
+        isset($_GET['path']) ? $path = $_GET['path'] : $path = null;
 
         switch($path){
             case "getAllUser":

@@ -1,17 +1,25 @@
 <?php
 
-define('HOST','db');
-define('DB_NAME','db-php');
-define('USER','root');
-define('PASS','root');
+namespace App\Db;
 
 
-try{
-    $db = new PDO("mysql:host=" . HOST .";dbname=" . DB_NAME, USER, PASS);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+class PDOFactory
+{
+    public static function getMysqlConnexion(){
 
-}catch(PDOException $e){
-    echo $e;
+        define('HOST','db');
+        define('DB_NAME','db-php');
+        define('USER','root');
+        define('PASS','root');
+
+        try{
+            $db = new \PDO("mysql:host=" . HOST .";dbname=" . DB_NAME, USER, PASS);
+            $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+
+            return $db;
+        
+        }catch(\PDOException $e){
+            echo $e;
+        }
+    }
 }
-
-?>

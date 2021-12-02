@@ -8,8 +8,9 @@ class User
 {
     public function getAllUser() {
         $model = new UserManager();
-        $index = $model->manageUser();
-        var_dump($index);
+        var_dump($model);
+        // $index = $model->manageUser();
+        // var_dump($index);
     }
 
     public function createUser() {
