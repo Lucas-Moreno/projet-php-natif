@@ -3,14 +3,14 @@
 namespace App\Controllers;
 
 use App\Models\UserManager;
+use App\Db\PDOFactory;
 
 class User
 {
+
     public function getAllUser() {
-        $model = new UserManager();
-        var_dump($model);
-        // $index = $model->manageUser();
-        // var_dump($index);
+        $managerUser = new UserManager(PDOFactory::getMySqlConnection());
+        var_dump($managerUser);
     }
 
     public function createUser() {

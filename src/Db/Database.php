@@ -2,24 +2,22 @@
 
 namespace App\Db;
 
-
 class PDOFactory
 {
-    public static function getMysqlConnexion(){
+    private static string $host = 'mysql:host=db';
+    private static string $username = 'root';
+    private static string $password = 'root';
+    const DB_NAME = 'db-php';
 
-        define('HOST','db');
-        define('DB_NAME','db-php');
-        define('USER','root');
-        define('PASS','root');
-
-        try{
-            $db = new \PDO("mysql:host=" . HOST .";dbname=" . DB_NAME, USER, PASS);
+    public static function getMysqlConnection(): \PDO
+    {
+        try {
+            $db = new \PDO(self::$host, self::$username, self::$password);
             $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-
-            return $db;
-        
-        }catch(\PDOException $e){
-            echo $e;
+        } catch (\PDOException $e) {
+           echo $e;
         }
+
+        return $db;
     }
 }

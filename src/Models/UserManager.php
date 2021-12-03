@@ -2,15 +2,21 @@
 
 namespace App\Models;
 
-use App\Db\PDOFactory;
 
-class UserManager{
+class UserManager
+{
+    private \PDO $pdo;
+
+    public function __construct(\PDO $pdo)
+    {
+        $this->pdo=$pdo;
+    }
+
+
     public function manageUser() {
-        $db = new PDOFactory();
-        var_dump($db);
-        // $query = $db->prepare('SELECT * FROM user');
-        // $query->execute();
-        // var_dump($query);
+        $query = 'SELECT * FROM `user`';
+        $response = $this->pdo->query($query);
+        return $response->fetchAll(\PDO::FETCH_CLASS, 'Entity\User');
     }
 }
 
