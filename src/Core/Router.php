@@ -10,8 +10,7 @@ class Router
 
         switch($path){
             case "getAllUser":
-                $controller = new \App\Controllers\User();
-                $controller->getAllUser();
+                $controller = new \App\Controllers\User('getAllUser');
                 break;
             case "createUser":
                 $controller = new \App\Controllers\User();

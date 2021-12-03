@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-
 class UserManager
 {
     private \PDO $pdo;
@@ -16,7 +15,7 @@ class UserManager
     public function manageUser() {
         $query = 'SELECT * FROM `user`';
         $response = $this->pdo->query($query);
-        return $response->fetchAll(\PDO::FETCH_CLASS, 'Entity\User');
+        return $response->fetchAll(\PDO::FETCH_CLASS, 'App\Entity\User');
     }
 }
 

@@ -2,15 +2,27 @@
 
 namespace App\Controllers;
 
+use App\BaseClasses\BaseController;
 use App\Models\UserManager;
 use App\Db\PDOFactory;
 
-class User
+
+// extends BaseController
+
+class User extends BaseController
 {
 
     public function getAllUser() {
+
         $managerUser = new UserManager(PDOFactory::getMySqlConnection());
-        var_dump($managerUser);
+        $index = $managerUser->manageUser();
+        
+        return $this->render('Page D\'accueil', 
+        [
+            'users' => $index,
+            'Foo' => 'Bar'
+        ],
+         'frontend/home');
     }
 
     public function createUser() {
