@@ -20,7 +20,7 @@ class Router
                     $controller->getAllUser();
                 }
                 break;
-            case "createUser":
+            case "":
                 $controller = new \App\Controllers\UserController();
                 $controller->createUser();
                 break;
@@ -28,12 +28,15 @@ class Router
                 $controller = new \App\Controllers\UserController();
                 $controller->updateUser();
                 break;
-            // case "deleteUser":
-            //     $controller = new \App\Controllers\UserController();
-            //     if($params){
-            //         $controller->deleteUser($params);
-            //     }
-            //     break;
+            case "connexion":
+                $controller = new \App\Controllers\UserController();
+                $controller->connexion();
+            case "deleteUser":
+                $controller = new \App\Controllers\UserController();
+                if($params){
+                    $controller->deleteUser($params);
+                }
+                break;
                 default:
                 break;
 

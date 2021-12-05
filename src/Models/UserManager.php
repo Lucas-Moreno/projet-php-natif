@@ -51,7 +51,16 @@ class UserManager
 
         $sth = $this->pdo->prepare('DELETE FROM `user` WHERE id = ?');
         $sth->execute(array($id));
-        return $sth->fetchAll(\PDO::FETCH_CLASS, 'App\Entity\User');
+        return $sth->execute();
+    }
+
+    public function connexion($email, $password) {
+
+
+        $query = 'SELECT email, password FROM `user` WHERE email = ? AND password = ?';
+        $response = $this->pdo->prepare($query);
+        $response->execute(array($email, $password));
+        return $response->execute();
     }
 }
 

@@ -37,7 +37,7 @@ class UserController extends BaseController
     public function createUser() {
         $managerUser = new UserManager(PDOFactory::getMySqlConnection());
         
-        if(isset($_POST["email"]) && isset($_POST["email"]) && isset($_POST["email"])){
+        if(isset($_POST["email"]) && isset($_POST["name"]) && isset($_POST["password"])){
             $index = $managerUser->createUser($_POST["email"], $_POST["name"], $_POST["password"]);
         }else{
             return $this->render('Page D\'accueil', 
@@ -70,6 +70,21 @@ class UserController extends BaseController
         [
             'users' => $index,
         ],
-         'frontend/userlist');
+         'frontend/deletePage');
+    }
+
+    public function connexion() {
+        $managerUser = new UserManager(PDOFactory::getMySqlConnection());
+
+        $index = $managerUser->connexion($_POST["email"], $_POST["password"]);
+        if($index === true){
+           $connect = true;
+        }
+
+        return $this->render('Page D\'accueil', 
+        [
+            'isConnect' => $connect,
+        ],
+         'frontend/connexion');
     }
 }

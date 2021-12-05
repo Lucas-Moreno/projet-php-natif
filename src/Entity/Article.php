@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
-class Article
+use App\BaseClasses\BaseEntity;
+
+class Article extends BaseEntity
 {
     private int $id;
     private string $author;
