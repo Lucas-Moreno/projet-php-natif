@@ -18,7 +18,7 @@ class ArticleManager
         return $response->fetchAll(\PDO::FETCH_CLASS, 'App\Entity\Article');
     }
 
-    public function getOneUser(int $id) {
+    public function getOneArticle(int $id) {
 
         $sth = $this->pdo->prepare('SELECT * FROM `article` WHERE id = ?');
         $sth->execute(array($id));

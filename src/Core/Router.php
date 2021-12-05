@@ -11,6 +11,13 @@ class Router
         $path = $link[0];
         $params = $link[1];
         switch($path){
+            case "home":
+                $controller = new \App\Controllers\ArticleController();
+                $controller->getAllArticle();
+                break;
+            case "article":
+                $controller = new \App\Controllers\ArticleController();
+                $controller->getOneArticle($params);
             case "userlist":
                 $controller = new \App\Controllers\UserController();
                 if($params){
@@ -39,7 +46,6 @@ class Router
                 break;
                 default:
                 break;
-
         }
     }
 }

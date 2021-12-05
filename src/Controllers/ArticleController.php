@@ -18,7 +18,7 @@ class ArticleController extends BaseController
         
         return $this->render('Page D\'accueil', 
         [
-            'article' => $index,
+            'articles' => $index,
         ],
          'frontend/home');
     }
@@ -30,7 +30,7 @@ class ArticleController extends BaseController
         
         return $this->render('Page D\'accueil', 
         [
-            'article' => $index,
+            'articles' => $index,
         ],
          'frontend/home');
     }

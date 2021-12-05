@@ -4,7 +4,7 @@
     <div>
       <h1><?= $article->getTitle(); ?></h1>
       <p>Écrit par : <?= $article->getAuthor(); ?></p>
-      <p><?= $article->getExcerpt(); ?></p>
+      <p><?= $article->getContent(); ?></p>
       <button>Lire plus</button>
     </div>
   <?php  endforeach; ?>

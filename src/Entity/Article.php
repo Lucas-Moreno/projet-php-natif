@@ -9,7 +9,7 @@ class Article extends BaseEntity
     private int $id;
     private string $author;
     private string $title;
-    private date $date;
+    private string $date;
     private string $imgUrl;
     private string $content;
 
@@ -52,7 +52,7 @@ class Article extends BaseEntity
         return $this;
     }
 
-    public function getDate(): date
+    public function getDate(): string
     {
         return $this->date;
     }
