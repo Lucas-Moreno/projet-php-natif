@@ -35,6 +35,24 @@ class UserManager
 
         return $query->execute();
     }
+
+    public function updateUser($isAdmin) {
+
+        if($isAdmin){
+            $query = $this->pdo->prepare('UPDATE user SET isAdmin = ?');
+        }
+
+        $query->bindParam(':isAdmin', $isAdmin);
+
+        return $query->execute();
+    }
+
+    public function deleteUser(int $id) {
+
+        $sth = $this->pdo->prepare('DELETE FROM `user` WHERE id = ?');
+        $sth->execute(array($id));
+        return $sth->fetchAll(\PDO::FETCH_CLASS, 'App\Entity\User');
+    }
 }
 
 ?>

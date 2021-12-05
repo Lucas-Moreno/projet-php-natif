@@ -10,12 +10,12 @@ class Router
         $link = explode('/', $_GET['path']);
         $path = $link[0];
         $params = $link[1];
-
         switch($path){
             case "userlist":
                 $controller = new \App\Controllers\UserController();
                 if($params){
                     $controller->getOneUser($params);
+                    $controller->deleteUser($params);
                 }else{
                     $controller->getAllUser();
                 }
@@ -24,14 +24,16 @@ class Router
                 $controller = new \App\Controllers\UserController();
                 $controller->createUser();
                 break;
-            case "updateUser":
+            case "isAdmin":
                 $controller = new \App\Controllers\UserController();
                 $controller->updateUser();
                 break;
-            case "deleteUser":
-                $controller = new \App\Controllers\UserController();
-                $controller->deleteUser();
-                break;
+            // case "deleteUser":
+            //     $controller = new \App\Controllers\UserController();
+            //     if($params){
+            //         $controller->deleteUser($params);
+            //     }
+            //     break;
                 default:
                 break;
 
