@@ -20,7 +20,7 @@ class UserController extends BaseController
         [
             'users' => $index,
         ],
-         'frontend/home');
+         'frontend/userlist');
     }
 
     public function getOneUser(int $id) {
@@ -32,7 +32,7 @@ class UserController extends BaseController
         [
             'users' => $index,
         ],
-         'frontend/home');
+         'frontend/userlist');
     }
 
     public function createUser() {
